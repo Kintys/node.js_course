@@ -1,6 +1,6 @@
 import { createServer } from "node:http";
 import fs from "fs";
-import routeJsonData from "./route.json" assert { type: "json" };
+import routeJsonData from "./route.json" with { type: "json" };
 // Задача 4. Розробити серверну частину додатку, який за відповідними маршрутами (“/”, “/coffee”, “/music”) повертає створені HTML документи (розмістіть їх там же, де і додаток), що описують: інформацію про себе, інфорімацію про улюблену кав’ярню,  інформацію про улюблений музичний гурт.
 
 const server = createServer(async (req, res) => {

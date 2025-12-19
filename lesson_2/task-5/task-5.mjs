@@ -1,5 +1,5 @@
 import { createServer } from "node:http";
-import settingJsonData from "./settings.json" assert { type: "json" };
+import settingJsonData from "./settings.json" with { type: "json" };
 import fs from "fs";
 const server = createServer(async (req, res) => {
     res.writeHead(200, { "Content-Type": "text/plain; charset=utf-8" });
