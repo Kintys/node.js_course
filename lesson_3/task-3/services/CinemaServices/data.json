@@ -1,0 +1,14 @@
+[
+    {
+        "name": "Netflix",
+        "url": "https://www.netflix.com"
+    },
+    {
+        "name": "Hulu",
+        "url": "https://www.hulu.com"
+    },
+    {
+        "name": "Amazon Prime Video",
+        "url": "https://www.primevideo.com"
+    }
+]

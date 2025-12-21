@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>
+      <%= title %>
+    </title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+
+  <br>
+  <h1>
+    <%= message %>
+  </h1>
+  <ul>
+    <% if(Array.isArray(list)){ %>
+      <% for(let item of list){ %>
+        <li><a href="<%= item.route %>">
+            <%= item.title %>
+          </a></li>
+        <% } %>
+          <% } else { %>
+            <p>
+              <%=list %>
+            </p>
+            <% } %>
+  </ul>
+
+</html>
