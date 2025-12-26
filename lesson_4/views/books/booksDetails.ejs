@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="stylesheet" href="/stylesheets/bookDetails.css" />
+</head>
+
+<body>
+    
+    <%-include('../components/header', {activePage: 'books'}) %>
+
+    <main>
+        <div class="book-container">
+            <div class="book-header">
+                <div class="book-title">
+                    <span class="book-title-label">Назва:</span>
+                    <h2><%= book.name %></h2>
+                </div>
+                
+                <div class="book-meta">
+                    <div class="book-meta-item">
+                        <span class="book-meta-label">Автор:</span>
+                        <span class="book-meta-value"><%= book.author %></span>
+                    </div>
+                    <div class="book-meta-item">
+                        <span class="book-meta-label">Рік видання:</span>
+                        <span class="book-meta-value"><%= book.publication %></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="book-description">
+                <span class="description-label">Опис:</span>
+                <p class="description-text"><%= book.description %></p>
+            </div>
+        </div>
+
+        <a href="/books" class="back-link">До списку книг</a>
+    </main>
+
+    <%-include('../components/footer') %>
+</body>
+
+</html>

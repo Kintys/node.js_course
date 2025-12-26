@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= book.id ? 'Редагування товару' : 'Створення товару' %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="stylesheet" href="/stylesheets/booksForm.css" />
+  </head>
+  <body>
+    <%-include('../components/header',{activePage:'books'}) %>
+
+    <main>
+      <div class="form-container">
+        <h1 class="form-title">
+          <%= book.id? '📝 Редагування книги' : '➕ Додати нову книгу' %>
+        </h1>
+        
+
+        <form
+          action="<%=book.id?`/books/update/${book.id}`:'/books/create'%>"
+          method="post"
+          class="books-form"
+        >
+          <div class="form-group">
+            <label for="name">Назва книжки</label>
+            <input 
+              type="text" 
+              id="name"
+              name="name" 
+              value="<%= book.name  %>" 
+              placeholder="Введіть назву книги"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="author">Автор</label>
+            <input 
+              type="text" 
+              id="author"
+              name="author" 
+              value="<%= book.author  %>" 
+              placeholder="Введіть ім'я автора"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="publication">Рік видання</label>
+            <input 
+              type="date" 
+              id="publication"
+              name="publication" 
+              value="<%= book.publication  %>" 
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="description">Опис</label>
+            <textarea 
+              id="description"
+              name="description" 
+              rows="6" 
+              placeholder="Введіть опис книги..."
+              required
+            ><%= book.description  %></textarea>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn-submit">
+              <%= book.id? '💾 Зберегти зміни' : '✨ Створити книгу' %>
+            </button>
+            <a href="/books" class="btn-cancel">Скасувати</a>
+          </div>
+        </form>
+      </div>
+    </main>
+    <%-include('../components/footer') %>
+  </body>
+
+ 
+</html>

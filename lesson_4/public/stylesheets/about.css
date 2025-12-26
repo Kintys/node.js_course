@@ -1,0 +1,405 @@
+/* ========================================
+   ABOUT PAGE - КНИЖКОВИЙ МАГАЗИН
+======================================== */
+
+.about-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+/* ========================================
+   HERO SECTION
+======================================== */
+
+.hero-section {
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 20px;
+    margin-bottom: 60px;
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.hero-section h1 {
+    font-size: 3.5rem;
+    color: white;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.95);
+    font-weight: 500;
+    margin: 0;
+}
+
+/* ========================================
+   INTRO SECTION
+======================================== */
+
+.intro-section {
+    margin-bottom: 80px;
+    animation: fadeInUp 1s ease-out 0.2s both;
+}
+
+.intro-content {
+    background: white;
+    padding: 50px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.lead-text {
+    font-size: 1.3rem;
+    line-height: 1.8;
+    color: #2c3e50;
+    font-weight: 500;
+    margin-bottom: 25px;
+    position: relative;
+    padding-left: 25px;
+    border-left: 4px solid #667eea;
+}
+
+.intro-content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #555;
+}
+
+/* ========================================
+   SERVICES SECTION
+======================================== */
+
+.services-section {
+    margin-bottom: 80px;
+    animation: fadeInUp 1s ease-out 0.4s both;
+}
+
+.services-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 50px;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.service-card {
+    background: white;
+    padding: 40px 30px;
+    border-radius: 15px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    position: relative;
+    overflow: hidden;
+}
+
+.service-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(102, 126, 234, 0.2);
+}
+
+.service-card:hover::before {
+    transform: scaleX(1);
+}
+
+.service-icon {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    animation: bounce 2s infinite;
+}
+
+.service-card:nth-child(1) .service-icon {
+    animation-delay: 0s;
+}
+.service-card:nth-child(2) .service-icon {
+    animation-delay: 0.2s;
+}
+.service-card:nth-child(3) .service-icon {
+    animation-delay: 0.4s;
+}
+.service-card:nth-child(4) .service-icon {
+    animation-delay: 0.6s;
+}
+
+@keyframes bounce {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.service-card h3 {
+    font-size: 1.5rem;
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.service-card p {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ========================================
+   CATALOG SECTION
+======================================== */
+
+.catalog-section {
+    margin-bottom: 80px;
+    animation: fadeInUp 1s ease-out 0.6s both;
+}
+
+.catalog-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 50px;
+}
+
+.catalog-list {
+    background: white;
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.catalog-item {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding: 30px;
+    border-left: 4px solid transparent;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.catalog-item:not(:last-child) {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.catalog-item:hover {
+    background: linear-gradient(90deg, rgba(102, 126, 234, 0.05), transparent);
+    border-left-color: #667eea;
+    transform: translateX(10px);
+}
+
+.catalog-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #667eea;
+    min-width: 70px;
+    text-align: center;
+}
+
+.catalog-info h3 {
+    font-size: 1.4rem;
+    color: #2c3e50;
+    margin-bottom: 8px;
+}
+
+.catalog-info p {
+    font-size: 1rem;
+    color: #666;
+    margin: 0;
+}
+
+/* ========================================
+   VALUES SECTION
+======================================== */
+
+.values-section {
+    margin-bottom: 80px;
+    animation: fadeInUp 1s ease-out 0.8s both;
+}
+
+.values-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 50px;
+}
+
+.values-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.value-item {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 40px 30px;
+    border-radius: 15px;
+    color: white;
+    box-shadow: 0 5px 20px rgba(102, 126, 234, 0.3);
+    transition: all 0.3s ease;
+}
+
+.value-item:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+}
+
+.value-item h3 {
+    font-size: 1.5rem;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.value-item p {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.95);
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* ========================================
+   CTA SECTION
+======================================== */
+
+.cta-section {
+    animation: fadeInUp 1s ease-out 1s both;
+}
+
+.cta-content {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    padding: 60px 40px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.cta-content h2 {
+    font-size: 2.5rem;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.cta-content p {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 35px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 18px 50px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+    text-decoration: none;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.6);
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+======================================== */
+
+@media (max-width: 768px) {
+    .hero-section h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .intro-content {
+        padding: 30px 25px;
+    }
+
+    .lead-text {
+        font-size: 1.1rem;
+    }
+
+    .services-section h2,
+    .catalog-section h2,
+    .values-section h2,
+    .cta-content h2 {
+        font-size: 2rem;
+    }
+
+    .services-grid,
+    .values-content {
+        grid-template-columns: 1fr;
+    }
+
+    .catalog-list {
+        padding: 20px;
+    }
+
+    .catalog-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+        padding: 20px;
+    }
+
+    .catalog-item:hover {
+        transform: translateX(0) scale(1.02);
+    }
+
+    .catalog-number {
+        min-width: auto;
+    }
+
+    .cta-content {
+        padding: 40px 25px;
+    }
+
+    .cta-button {
+        padding: 15px 40px;
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-section {
+        padding: 40px 15px;
+        margin-bottom: 40px;
+    }
+
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+
+    .service-card,
+    .value-item {
+        padding: 30px 20px;
+    }
+}

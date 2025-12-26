@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Книжки - Список</title>
+        <link rel="stylesheet" href="/stylesheets/style.css" />
+        <link rel="stylesheet" href="/stylesheets/booksList.css" />
+        <link rel="stylesheet" href="/stylesheets/booksSearch.css">
+        <script src="/javascript/delete.js"></script>
+    </head>
+
+    <body>
+        <%-include('../components/header', {activePage: 'books' }) %>
+
+            <main>
+               <div class="wrapper">
+                
+                <%-include('./booksSearch') %>
+
+                    <div class="books-header">
+                        <h1 class="books-title">Каталог книг</h1>
+                        <a href="/books/create" class="add-book-btn">Додати книгу</a>
+                    </div>
+    
+                    <div class="books-container">
+                        <% if (books && books.length> 0) { %>
+                            <table class="books-table">
+                                <thead>
+                                    <tr>
+                                        <th>Назва книги</th>
+                                        <th>Автор</th>
+                                        <th>Рік видання</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% books.forEach(book=> { %>
+                                        <tr>
+                                            <td data-label="Назва">
+                                                <a href="/books/<%= book.id %>" class="book-name-link">
+                                                    <%= book.name %>
+                                                </a>
+                                            </td>
+                                            <td data-label="Автор">
+                                                <%= book.author %>
+                                            </td>
+                                            <td data-label="Рік видання">
+                                                <span class="book-publication">
+                                                    <%= book.publication %>
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <a href="/books/update/<%= book.id %>" class="action-btn edit-btn">
+                                                    Редагувати
+                                                </a>
+                                                <button class="action-btn delete-btn" onclick="deleteBook('<%= book.id %>')">
+                                                    Видалити
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <% }) %>
+                                </tbody>
+                            </table>
+                            <% } else { %>
+                                <div class="empty-state">
+                                    <div class="empty-state-icon"></div>
+                                    <p class="empty-state-text">Список книг порожній</p>
+                                    <p class="empty-state-subtext">Додайте першу книгу до каталогу</p>
+                                </div>
+                                <% } %>
+                    </div>
+               </div>
+            </main>
+
+            <%-include('../components/footer') %>
+    </body>
+
+</html>

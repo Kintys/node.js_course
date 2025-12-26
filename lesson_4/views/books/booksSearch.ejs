@@ -1,0 +1,45 @@
+<div class="search-container">
+    <h1 class="search-title">🔍 Пошук книг</h1>
+
+
+    <div class="search-actions">
+        <button class="btn-search">
+            <a href="/books">Очистити</a>
+        </button>
+    </div>
+
+    <div class="search-forms">
+        <div class="search-card">
+            <h2>Пошук за автором</h2>
+            <form action="/books/search" method="GET" class="search-form">
+                <div class="form-group">
+                    <label for="author">Введіть ім'я автора</label>
+                    <input id="author" name="author" type="text" placeholder="Наприклад: Дж. К. Роулінг" required>
+                </div>
+                <button type="submit" class="btn-search">
+                    🔎 Знайти автора
+                </button>
+            </form>
+        </div>
+
+        <div class="search-card">
+            <h2>Фільтр за роком видання</h2>
+            <form action="/books/filter" method="GET" class="search-form">
+                <div class="form-group">
+                    <label for="filter">Оберіть рік видання</label>
+                    <select id="filter" name="publication" required>
+                        <option value="">-- Оберіть рік --</option>
+                        <option value="1990">1990-ті</option>
+                        <option value="2000">2000-ні</option>
+                        <option value="2010">2010-ті</option>
+                        <option value="2020">2020-ті</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-search">
+                    📚 Знайти за роком
+                </button>
+            </form>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,244 @@
+.search-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0;
+    animation: fadeInUp 0.6s ease-out;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.search-actions {
+    align-self: flex-end;
+}
+
+.search-title {
+    text-align: center;
+    font-size: 3rem;
+    color: #2c3e50;
+    margin-bottom: 50px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.search-forms {
+    background: white;
+    padding: 40px 35px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+}
+
+.search-card {
+    width: 400px;
+}
+
+.search-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+}
+
+.card-icon {
+    font-size: 4rem;
+    text-align: center;
+    margin-bottom: 20px;
+    animation: bounce 2s infinite ease-in-out;
+}
+
+.search-card:nth-child(1) .card-icon {
+    animation-delay: 0s;
+}
+
+.search-card:nth-child(2) .card-icon {
+    animation-delay: 0.3s;
+}
+
+@keyframes bounce {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+.search-card h2 {
+    text-align: center;
+    font-size: 1.8rem;
+    color: #2c3e50;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+.search-form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form-group label {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 15px 20px;
+    font-size: 1rem;
+    color: #2c3e50;
+    background: #f8f9fa;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    background: white;
+    border-color: #667eea;
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+    outline: none;
+}
+
+.form-group input::placeholder {
+    color: #999;
+    font-style: italic;
+}
+
+.form-group select {
+    cursor: pointer;
+}
+
+.form-group select option {
+    padding: 10px;
+}
+
+.btn-search {
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: white;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+    margin-top: 10px;
+}
+
+.btn-search:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.6);
+}
+
+.btn-search:active {
+    transform: translateY(-1px) scale(1.02);
+}
+
+@media (max-width: 900px) {
+    .search-forms {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .search-container {
+        padding: 0 15px;
+    }
+
+    .search-title {
+        font-size: 2.2rem;
+        margin-bottom: 35px;
+    }
+
+    .search-card {
+        padding: 30px 25px;
+    }
+
+    .card-icon {
+        font-size: 3rem;
+    }
+
+    .search-card h2 {
+        font-size: 1.5rem;
+        margin-bottom: 25px;
+    }
+
+    .form-group label {
+        font-size: 1rem;
+    }
+
+    .form-group input,
+    .form-group select {
+        padding: 12px 15px;
+        font-size: 0.95rem;
+    }
+
+    .btn-search {
+        padding: 14px 25px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .search-title {
+        font-size: 1.8rem;
+    }
+
+    .search-card {
+        padding: 25px 20px;
+    }
+
+    .card-icon {
+        font-size: 2.5rem;
+    }
+
+    .search-card h2 {
+        font-size: 1.3rem;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes inputFocus {
+    0% {
+        box-shadow: 0 0 0 0 rgba(102, 126, 234, 0.4);
+    }
+    100% {
+        box-shadow: 0 0 0 8px rgba(102, 126, 234, 0);
+    }
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    animation: inputFocus 0.6s ease-out;
+}
