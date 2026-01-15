@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <%-include('../components/header',{activePage:'cars'}) %>
+
+    <main>
+    <div class="cars-container">
+        <h1><%= title %></h1>
+          <button class="btn-add-car">
+            <a href="/cars/create">+ Додати авто</a>
+          </button>
+        <hr />
+        <table class="cars-table">
+          <tbody>
+            <% cars.forEach(car=>{ %>
+            <tr>
+              <td>
+                <img
+                  src="<%= car.image ?? '/images/photo-not-available.jpg'  %>"
+                  alt="<%= car.title %>"
+                />
+              </td>
+              <td>
+                <a href="<%= `/cars/${car._id}` %>">
+                  <%=car.title %>
+                </a>
+              </td>
+              <td><%=car.year %></td>
+              <td><%=car.plateNumber %></td>
+              <td>
+                <a href="<%= `/cars/update/${car._id}`%>">Редагувати</a>
+              </td>
+              <td>
+                <button onclick="deleteCar('<%=car._id%>')">
+                  Видалити</button>
+              </td>
+            </tr>
+            <% }) %>
+          </tbody>
+        </table>
+        <hr />
+    </div>
+    </main>
+    <%-include('../components/footer') %>
+    <script src="/javascript/delete.js"></script>
+  </body>
+</html>
