@@ -1,0 +1,78 @@
+<html lang='en'>
+
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <title>
+      <%= title %>
+    </title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <script src="/javascript/routers/router.js"></script>
+
+  <body class="auth-page">
+    <%-include('../components/header', {activePage:'register'}) %>
+
+
+      <main>
+        <div class="auth-container">
+          <form id="createForm" class="auth-form" action="/user/create" method="post">
+            <label>
+              Name
+              <input type="text" name="name" value="<%= user.name  %>">
+              <% if(errors && errors.length> 0){ %>
+                <% errors.forEach(error=> { %>
+                  <% if(error.path[0]==='name' ){ %>
+                    <small class="error-message">
+                      <%= error.message %>
+                    </small>
+                    <% } %>
+                      <% }) %>
+                        <% } %>
+
+            </label>
+
+            <label>
+              Password
+              <input type="password" name="password" value="<%= user.password %>">
+              <% if(errors && errors.length> 0){ %>
+                <% errors.forEach(error=> { %>
+                  <% if(error.path[0]==='password' ){ %>
+                    <small class="error-message">
+                      <%= error.message %>
+                    </small>
+                    <% } %>
+                      <% }) %>
+                        <% } %>
+
+            </label>
+
+            <label>
+              confirm Password
+              <input type="password" name="confirmPass" value="<%= user.confirmPass %>">
+              <% if(errors && errors.length> 0){ %>
+                <% errors.forEach(error=> { %>
+                  <% if(error.path[0]==='password' ){ %>
+                    <small class="error-message">
+                      <%= error.message %>
+                    </small>
+                    <% } %>
+                      <% }) %>
+                        <% } %>
+
+            </label>
+
+            <button type="submit"> create new account</button>
+
+          </form>
+        </div>
+
+
+      </main>
+
+
+      <%-include('../components/footer') %>
+        <script src="/javascript/create.js"></script>
+  </body>
+
+</html>

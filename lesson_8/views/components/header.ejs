@@ -1,0 +1,22 @@
+<nav>
+    <ul>
+        <li>
+            <a href='/' class="<%= activePage==='home'?'active':'' %>">Головна</a>
+        </li>
+        <li>
+            <a id='carsLink' class="<%= activePage==='cars'?'active':'' %>">Автомобілі</a>
+        </li>
+        <li>
+            <a href='/about'>Про нас</a>
+        </li>
+        <li id='adminLink'>
+            <a href='#'>Адмін</a>
+        </li>
+        <li>
+            <a href='/user' class="<%= activePage==='login'?'active':'' %>" id='authLink'>Увійти</a>
+        </li>
+    </ul>
+</nav>
+
+<script src='/javascript/logout.js'>
+</script>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>
+            <%= title %>
+        </title>
+        <link rel="stylesheet" href="/stylesheets/style.css" />
+    </head>
+
+    <body>
+
+        <%-include('../components/header', {activePage: 'admin' }) %>
+
+            <main>
+                <div class="admin-container">
+                    <h1><%= title %></h1>
+                    
+                    <div class="users-list">
+                        <% userList.forEach(user => { %>
+                            <div class="user-card">
+                                <div class="user-info">
+                                    <h2><%= user.name %></h2>
+                                    <p class="user-id">ID: <%= user.id %></p>
+                                </div>
+
+                                <form class="permissions-form" data-user-id="<%= user.id %>" data-permission-id="<%= user.permission._id %>">
+                                    <h3>Права доступу:</h3>
+                                    
+                                    <div class="permission-group">
+                                        <label>
+                                            <input 
+                                                type="checkbox" 
+                                                name="create" 
+                                                <%= user.permission.create ? 'checked' : '' %>
+                                            >
+                                            <span>Створення (Create)</span>
+                                        </label>
+
+                                        <label>
+                                            <input 
+                                                type="checkbox" 
+                                                name="read" 
+                                                <%= user.permission.read ? 'checked' : '' %>
+                                            >
+                                            <span>Читання (Read)</span>
+                                        </label>
+
+                                        <label>
+                                            <input 
+                                                type="checkbox" 
+                                                name="update" 
+                                                <%= user.permission.update ? 'checked' : '' %>
+                                            >
+                                            <span>Оновлення (Update)</span>
+                                        </label>
+
+                                        <label>
+                                            <input 
+                                                type="checkbox" 
+                                                name="delete" 
+                                                <%= user.permission.delete ? 'checked' : '' %>
+                                            >
+                                            <span>Видалення (Delete)</span>
+                                        </label>
+
+                                        <label class="admin-permission">
+                                            <input 
+                                                type="checkbox" 
+                                                name="isAdmin" 
+                                                <%= user.permission.isAdmin ? 'checked' : '' %>
+                                            >
+                                            <span>Адміністратор (Admin)</span>
+                                        </label>
+                                    </div>
+
+                                    <button type="submit" class="btn-save">Зберегти зміни</button>
+                                    <span class="save-status"></span>
+                                </form>
+                            </div>
+                        <% }) %>
+                    </div>
+
+                    <a href="/" class="btn-back">← Повернутися на головну</a>
+                </div>
+            </main>
+
+
+            <script src="/javascript/admin.js">
+                </script>
+
+            <%-include('../components/footer') %>
+    </body>
+
+</html>

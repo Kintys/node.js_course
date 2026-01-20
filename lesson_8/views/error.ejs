@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Помилка <%= error.status || '500' %>
+        </title>
+        <link rel="stylesheet" href="/stylesheets/style.css">
+        <link rel="stylesheet" href="/stylesheets/error.css">
+    </head>
+
+    <body>
+        <div class="error-container">
+            <div class="error-icon">😕</div>
+            <div class="error-code">
+                <%= error.status || '500' %>
+            </div>
+            <div class="error-message">
+                <%= message || 'Щось пішло не так' %>
+            </div>
+            <div class="error-description">
+                <% if (error.status==404) { %>
+                    Вибачте, сторінка, яку ви шукаєте, не знайдена. Можливо, вона була переміщена або видалена.
+                    <% } else if (error.status==403) { %>
+                        У вас немає доступу до цього ресурсу. Будь ласка, перевірте ваші права доступу.
+                        <% } else if (error.status==500) { %>
+                            На сервері сталася помилка. Наша команда вже працює над її вирішенням.
+                            <% } else { %>
+                                Вибачте за незручності. Будь ласка, спробуйте ще раз пізніше.
+                                <% } %>
+            </div>
+
+            <div class="button-group">
+                <a href="/" class="btn btn-primary">🏠 На головну</a>
+                <button onclick="history.back()" class="btn btn-secondary">← Назад</button>
+            </div>
+
+            <% if (error.stack) { %>
+                <div class="toggle-details" onclick="toggleDetails()">
+                    📋 Показати технічні деталі
+                </div>
+
+                <div id="errorDetails" class="error-details">
+                    <h3>Технічна інформація:</h3>
+                    <pre><%= error.stack %></pre>
+                </div>
+                <% } %>
+        </div>
+
+        <script>
+            function toggleDetails() {
+                const details = document.getElementById('errorDetails');
+                const toggle = document.querySelector('.toggle-details');
+
+                if (details.classList.contains('show')) {
+                    details.classList.remove('show');
+                    toggle.textContent = '📋 Показати технічні деталі';
+                } else {
+                    details.classList.add('show');
+                    toggle.textContent = '✖ Приховати технічні деталі';
+                }
+            }
+
+            const errorCode = <% - JSON.stringify(error.status || 500) %>;
+            const errorIcon = document.querySelector('.error-icon');
+
+            if (errorCode === 404) {
+                errorIcon.textContent = '🔍';
+            } else if (errorCode === 403) {
+                errorIcon.textContent = '🔒';
+            } else if (errorCode === 500) {
+                errorIcon.textContent = '⚠️';
+            } else if (errorCode >= 400 && errorCode < 500) {
+                errorIcon.textContent = '❌';
+            } else {
+                errorIcon.textContent = '😕';
+            }
+        </script>
+    </body>
+
+</html>
