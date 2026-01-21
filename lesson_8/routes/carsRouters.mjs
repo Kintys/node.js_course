@@ -7,13 +7,13 @@ import carsZODSchema from '../validator/carsValidateSchema.mjs'
 
 const router = Router()
 
-router.get('/:permId?', Cars.getCarsList)
-
 router.get('/create', Cars.getCarForm)
 
 router.get('/update/:id', Cars.getCarForm)
 
-router.get('/:id', Cars.getCarById)
+router.get('/:permId?', Cars.getCarsList)
+
+router.get('/car/:id', Cars.getCarById)
 
 router.post('/create', uploadMiddleWare.single('image'), carValidationMiddleware(carsZODSchema), Cars.createCar)
 

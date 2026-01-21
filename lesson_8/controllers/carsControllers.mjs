@@ -62,10 +62,9 @@ class CarsControllers {
             const carData = req.validatedCarData
 
             if (req.file) carData.image = `/images/${req.file.filename}`
-
             await this.carsModules.addNewCar(carData)
 
-            res.redirect('/cars')
+            res.redirect('/')
         } catch (error) {
             res.status(500).render('error', {
                 error: {
@@ -89,7 +88,7 @@ class CarsControllers {
             }
 
             await this.carsModules.updateCar(id, carData)
-            res.redirect('/cars')
+            res.redirect('/')
         } catch (error) {
             res.status(500).render('error', {
                 error: {

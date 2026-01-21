@@ -47,7 +47,7 @@ userSchema.pre('save', async function () {
             create: true,
             update: true,
             read: true,
-            delete: false,
+            delete: true,
             isAdmin: false
         })
 

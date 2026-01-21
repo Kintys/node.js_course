@@ -1,4 +1,4 @@
-import mongoose from 'mongoose'
+import mongoose, { Schema } from 'mongoose'
 
 const carSchema = new mongoose.Schema(
     {
@@ -40,6 +40,10 @@ const carSchema = new mongoose.Schema(
             required: [true, "Зображення обов'язкове"],
             match: [/^\/images\/[\w\-\.]+\.(jpg|jpeg|png|webp|jfif)$/, 'Невірний формат шляху до зображення'],
             trim: true
+        },
+        owner: {
+            type: Schema.Types.ObjectId,
+            ref: 'User'
         }
     },
     {

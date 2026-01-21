@@ -66,9 +66,13 @@ function submitUserForm() {
                     }
 
                     window.location.href = '/'
+                } else {
+                    const error = await response.json()
+                    alert(`Помилка реєстрації: ${error.message || 'Спробуйте ще раз'}`)
                 }
             } catch (error) {
-                console.error('Login error:', error)
+                console.error('Registration error:', error)
+                alert("Помилка з'єднання з сервером")
             }
         }
     })

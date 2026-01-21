@@ -11,7 +11,8 @@ class MongooseAdapter {
             const result = await this.model[operation](...args)
             return result
         } catch (error) {
-            return error.message
+            console.error(`MongoDB operation ${operation} failed:`, error.message)
+            throw error
         }
     }
 }

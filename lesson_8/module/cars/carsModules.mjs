@@ -2,6 +2,7 @@ import path from 'path'
 import { deleteFileFromDir } from '../../helper/deleteFile.mjs'
 import CarsServices from '../../services/carsServices/carsServices.mjs'
 import CarModel from './carsSchema.mjs'
+import '../user/userSchema.mjs'
 
 class CarsModules {
     constructor(dataProvider, deleteFileFromDir) {

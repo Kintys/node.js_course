@@ -30,7 +30,7 @@
                     <img src="<%= car.image ?? '/images/photo-not-available.jpg'  %>" alt="<%= car.title %>" />
                   </td>
                   <td>
-                    <a href="<%= `/cars/${car._id}` %>">
+                    <a href="<%= `/cars/car/${car._id}` %>">
                       <%=car.title %>
                     </a>
                   </td>
@@ -39,6 +39,9 @@
                   </td>
                   <td>
                     <%=car.plateNumber %>
+                  </td>
+                   <td>
+                    <%=car.owner?.name %>
                   </td>
                   <td>
                     <% if(permission && permission.update){  %>

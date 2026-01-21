@@ -18,7 +18,6 @@ class UserServices {
     }
 
     getPermissionById = async (id) => {
-        console.log(id)
         return await this.permissionReadRepo.findById({ _id: id })
     }
 

@@ -7,7 +7,7 @@ class CarsServices {
         this.writeRepo = new MongoWriteRepository(model)
     }
     loadData = async () => {
-        return await this.readRepo.getAll()
+        return await this.readRepo.findWithPopulate({}, [{ path: 'owner', select: 'name -_id' }])
     }
 
     getItemById = async (id) => {
