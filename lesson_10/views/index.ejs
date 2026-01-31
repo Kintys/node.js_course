@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <title>
+      <%= title %>
+    </title>
+  </head>
+
+
+  <body>
+    <%-include( 'components/header' ,{activePage:"home", user: user}) %>
+
+      <main>
+        <div class="home-container">
+          <section class="hero-section">
+            <div class="hero-content">
+              <h1 class="hero-title">Ласкаво просимо до <%= title %>
+              </h1>
+              <p class="hero-description">
+                Ваш надійний партнер у світі автомобілів! Ми пропонуємо найкращі авто різних марок та моделей.
+                Знайдіть автомобіль своєї мрії у нашому великому каталозі.
+              </p>
+              <a href="/cars" class="cta-button">Переглянути каталог</a>
+            </div>
+          </section>
+        </div>
+      </main>
+
+      <%-include( 'components/footer' ) %>
+  </body>
+
+</html>

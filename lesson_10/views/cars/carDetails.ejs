@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+      <%= title %>
+    </title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+
+  <body>
+
+    <%-include('../components/header', {activePage: 'cars' , user: user}) %>
+
+      <main>
+        <section>
+          <div>
+            <img src="<%=  car.image %>" alt="<%= car.title %>">
+          </div>
+
+          <div>
+            <h2>
+              <%= car.title %>
+            </h2>
+            <div>
+              <strong>Рік випуску:</strong>
+              <%= car.year %>
+            </div>
+            <div>
+              <strong>Номерний знак:</strong>
+              <%= car.plateNumber %>
+            </div>
+            <div>
+              <strong>Опис:</strong><br>
+              <%= car.description %>
+            </div>
+          </div>
+        </section>
+
+        <a href="/cars">← Повернутися до каталогу</a>
+      </main>
+      <%-include('../components/footer') %>
+  </body>
+
+</html>

@@ -1,0 +1,9 @@
+import { Router } from 'express'
+import AuthController from '../controllers/authController.mjs'
+
+const router = Router()
+
+router.post('/login', AuthController.loginUser)
+router.get('/logout', AuthController.logoutUser)
+
+export default router

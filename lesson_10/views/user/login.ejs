@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+      <%= title %>
+    </title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+
+  <body class="auth-page">
+    <%-include('../components/header',{activePage:'login', user: currentUser}) %>
+
+
+      <main>
+        <div class="auth-container">
+          <form id="login" class="auth-form" action="/auth/login" method="post">
+            <label>
+              Login
+              <input type="text" name="name" value="<%= user.name  %>">
+              <% if(errors && errors.length> 0){ %>
+                <% errors.forEach(error=> { %>
+                  <% if(error.path[0]==='name' ){ %>
+                    <small class="error-message">
+                      <%= error.message %>
+                    </small>
+                    <% } %>
+                      <% }) %>
+                        <% } %>
+
+            </label>
+            <label>
+              Password
+              <input type="password" name="password" value="<%= user.password %>">
+              <% if(errors && errors.length> 0){ %>
+                <% errors.forEach(error=> { %>
+                  <% if(error.path[0]==='password' ){ %>
+                    <small class="error-message">
+                      <%= error.message %>
+                    </small>
+                    <% } %>
+                      <% }) %>
+                        <% } %>
+            </label>
+
+            <p>Тестовий аккаунт admin/admin</p>
+
+            <button type="submit">Login</button>
+          </form>
+
+          <button class="auth-link-button"><a href="/user/create">Створити аккаунт</a></button>
+        </div>
+
+
+      </main>
+
+
+
+      <%-include('../components/footer') %>
+
+  </body>
+
+</html>
