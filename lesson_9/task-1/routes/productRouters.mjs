@@ -1,6 +1,6 @@
 import { Router } from 'express'
 
-import upload from '../middleware/UploadFileManager.mjs'
+import upload from '../middleware/uploadFileManager.mjs'
 import ProductController from '../controllers/productControllers.mjs'
 const router = Router()
 
